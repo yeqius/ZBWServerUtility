@@ -33,7 +33,7 @@ public class WebRequestExample : MonoBehaviour
     private const string Xianggang = "ap-hongkong";
     private const string BUYTIMETYPE_HOUR = "POSTPAID_BY_HOUR";
     private const string BUYTIMETYPE_DAY = "PREPAID";
-
+    
 
     private LocationInfo locationInfo;
     private bool isFetchingLocation = false;
@@ -164,7 +164,7 @@ public class WebRequestExample : MonoBehaviour
         form.AddField("password", "wwww2222....");
         form.AddField("cpu", serverData.cpuValue);//
         form.AddField("memory", serverData.memoryValue);//
-
+        form.AddField("buyCount",1);
 
 
         var www = UnityWebRequest.Post(url, form);
@@ -719,7 +719,7 @@ public class WebRequestExample : MonoBehaviour
         form.AddField("InstancePassword", "123");
         form.AddField("Cpu", "2");
         form.AddField("Memory", "4");
-
+        form.AddField("BuyCount",1);
     var www = UnityWebRequest.Post(url, form);
         yield return www.SendWebRequest();
         //string buyInstance = "";
@@ -774,6 +774,7 @@ public class WebRequestExample : MonoBehaviour
 
         var form = new WWWForm();
         form.AddField("function", FUNCTION_RENEW);
+        form.AddField("userId",1);
         form.AddField("instanceId", instanceId);
         form.AddField("buyTime", serverDetial.GetNumValue());
 
